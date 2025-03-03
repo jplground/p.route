@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p.route.service", "p.route.service\p.route.service.csproj", "{DCFAD7E2-E589-44DE-B224-A9718D4849D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{7A8DDBAD-0836-4DA7-BBB5-9E2C6134A566}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tfl.Api.Presentation.Entities", "Tfl.Api.Presentation.Entities\Tfl.Api.Presentation.Entities.csproj", "{7955AB97-909A-4580-BFD8-7448AC7D9F16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,10 @@ Global
 		{DCFAD7E2-E589-44DE-B224-A9718D4849D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCFAD7E2-E589-44DE-B224-A9718D4849D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCFAD7E2-E589-44DE-B224-A9718D4849D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7955AB97-909A-4580-BFD8-7448AC7D9F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7955AB97-909A-4580-BFD8-7448AC7D9F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7955AB97-909A-4580-BFD8-7448AC7D9F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7955AB97-909A-4580-BFD8-7448AC7D9F16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
