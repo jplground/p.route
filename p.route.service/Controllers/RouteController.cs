@@ -9,9 +9,11 @@ namespace p.route.service.Controllers
     {
         // Id's of some stations (StopType=NaptanMetroStation):
         // Northfields: 940GZZLUNFD
-        // Ealing Broadway: 940GZZLUEBY
+        // Ealing Broadway Tube Station: 940GZZLUEBY
+        // Arnos Grove: 940GZZLUASG
         // (StopType=NaptanRailStation)
         // West Ealing: 910GWEALING
+        // Ealing Broadway Elizabeth Line: HUBEAL
 
         // Bus stops:
         // Northfield Station (Towards Ealing): 490000159B
@@ -25,6 +27,20 @@ namespace p.route.service.Controllers
         {
             _logger = logger;
             _httpClient = new HttpClient();
+        }
+
+        [HttpGet]
+        [Route("starts-at-northfields")]
+        public async Task<ActionResult<IEnumerable<DateTimeOffset>>> StartsAtNorthfields()
+        {
+            var bostonManor = RouteFactory.TubeBostonManorToWork;
+            var northfields = RouteFactory.TubeNorthfieldsToWork;
+
+            var departure = DateTimeOffset.Now.AddMinutes(7);
+            var bostonManorDepartures = await bostonManor.NextDeparturesAfter(_httpClient, departure);
+            var northfieldsDepartures = await northfields.NextDeparturesAfter(_httpClient, departure);
+
+            return northfieldsDepartures.Where(d => !bostonManorDepartures.Any(t => t.VehicleId == d.VehicleId)).Select(d => d.ExpectedArrival).ToArray();
         }
 
         [HttpGet]
